@@ -104,25 +104,73 @@ void *mainThread(void *arg0)
             // Initial state
             case 0:
                 LED_state = 1;
-                break;
+                //break;
 
             // LED off
             case 1:
+                if (input == 'O') {
+                            bytesRead = 0;
+                            while (bytesRead == 0)
+                            {
+                                UART2_write(uart, &input, 1, &bytesWritten);
+                                UART2_read(uart, &input, 1, &bytesRead);
+
+
+                            }
+                }
+
+                if (input =='F') {
+                            bytesRead = 0;
+                            while (bytesRead == 0)
+                            {
+                                UART2_write(uart, &input, 1, &bytesWritten);
+                                UART2_read(uart, &input, 1, &bytesRead);
+
+
+                            }
+
+                }
+
+
+
                 if (input == 'F') {
+                    bytesRead = 0;
+                    while (bytesRead == 0)
+                    {
+                        UART2_write(uart, &input, 1, &bytesWritten);
+                        UART2_read(uart, &input, 1, &bytesRead);
+
+
+
+                    }
 
                     LED_state = 1;
-
                 }
-                else if (input == 'N') {
+
+                if (input == 'N') {
+                    bytesRead = 0;
+                    while (bytesRead == 0)
+                    {
+                        UART2_write(uart, &input, 1, &bytesWritten);
+                        UART2_read(uart, &input, 1, &bytesRead);
+
+
+
+                    }
 
                     LED_state = 2;
-
                 }
+
+
                 break;
+
+
+
+
 
            // LED on
             case 2:
-                if (input == 'F') {
+                if (input == 'O') {
 
                     LED_state = 1;
 
@@ -166,7 +214,7 @@ void *mainThread(void *arg0)
 
 
 
-        bytesWritten = 0;
+        /* bytesWritten = 0;
         while (bytesWritten == 0)
         {
             status = UART2_write(uart, &input, 1, &bytesWritten);
@@ -176,8 +224,9 @@ void *mainThread(void *arg0)
             if (status != UART2_STATUS_SUCCESS)
             {
                 /* UART2_write() failed */
-                while (1) {}
+        /*        while (1) {}
             }
         }
+        */
     }
 }
