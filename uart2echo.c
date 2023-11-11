@@ -170,16 +170,53 @@ void *mainThread(void *arg0)
 
            // LED on
             case 2:
-                if (input == 'O') {
+                if (input =='O') {
+                            bytesRead = 0;
+                            while (bytesRead == 0)
+                            {
+                                UART2_write(uart, &input, 1, &bytesWritten);
+                                UART2_read(uart, &input, 1, &bytesRead);
 
-                    LED_state = 1;
+
+                            }
 
                 }
 
-                else if (input == 'N') {
+                if (input =='N') {
+                            bytesRead = 0;
+                            while (bytesRead == 0)
+                            {
+                                UART2_write(uart, &input, 1, &bytesWritten);
+                                UART2_read(uart, &input, 1, &bytesRead);
 
+
+                            }
                     LED_state = 2;
+                }
 
+
+                if (input =='F') {
+                            bytesRead = 0;
+                            while (bytesRead == 0)
+                            {
+                                UART2_write(uart, &input, 1, &bytesWritten);
+                                UART2_read(uart, &input, 1, &bytesRead);
+
+
+                            }
+
+                }
+
+                if (input =='F') {
+                            bytesRead = 0;
+                            while (bytesRead == 0)
+                            {
+                                UART2_write(uart, &input, 1, &bytesWritten);
+                                UART2_read(uart, &input, 1, &bytesRead);
+
+
+                            }
+                    LED_state = 1;
                 }
                 break;
 
